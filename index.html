@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Climb-Check — Five questions that separate polished from true</title>
+<meta name="description" content="A one-page audit for any confident claim: an AI answer, a study, a vendor pitch, a student's brief. Five questions that separate polished from true.">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg:#fdfdfd; --fg:#0a0a0a; --fg-soft:#41463f; --fg-muted:#7c8479;
+  --accent:#154734; --accent-mid:#3d7a5c; --accent-soft:#e8efe9; --accent-pale:#f3f7f4;
+  --bad:#8a2c1f; --bad-soft:#fbf3f1; --rule:#e5e7e4;
+  --sans:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+  --serif:ui-serif,"Charter","Iowan Old Style",Georgia,serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+}
+html{ -webkit-text-size-adjust:100%; overflow-x:hidden; }
+body{ background:var(--bg); color:var(--fg); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-wrap:break-word; }
+.wrap{ width:100%; max-width:46rem; margin:0 auto; padding:clamp(1.6rem,5vw,3.2rem) clamp(1.1rem,5vw,2rem) 4rem; }
+.ex-head .src{ overflow-wrap:anywhere; }
+
+/* header */
+.kick{ font-family:var(--mono); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+h1{ font-family:var(--serif); font-weight:700; font-size:clamp(1.9rem,7vw,2.9rem); line-height:1.08; letter-spacing:-.015em; margin:.7rem 0 0; }
+.lede{ font-family:var(--serif); font-style:italic; font-size:clamp(1.05rem,3.6vw,1.3rem); color:var(--fg-soft); margin-top:.9rem; line-height:1.4; }
+.use{ margin-top:1.4rem; padding:.85rem 1.1rem; background:var(--accent-pale); border-left:3px solid var(--accent); border-radius:0 7px 7px 0; font-size:.97rem; line-height:1.45; color:var(--fg-soft); }
+.use strong{ color:var(--accent); }
+
+/* sections */
+.sec-label{ font-family:var(--mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--fg-muted); font-weight:700; margin:2.6rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--rule); }
+
+/* the five questions */
+.q{ display:grid; grid-template-columns:2.2rem 1fr; gap:.2rem .9rem; padding:1rem 0; border-top:1px solid var(--rule); }
+.q:first-of-type{ border-top:none; }
+.q .n{ font-family:var(--mono); font-weight:700; font-size:1.15rem; color:var(--accent); line-height:1.2; }
+.q .qt{ font-family:var(--serif); font-weight:700; font-size:clamp(1.12rem,4vw,1.32rem); line-height:1.22; color:var(--fg); }
+.q .qs{ grid-column:2; font-size:.95rem; line-height:1.45; color:var(--fg-soft); margin-top:.35rem; }
+.q .qs em{ color:var(--accent); font-style:italic; }
+
+/* worked example */
+.ex{ margin-top:.4rem; border:1px solid var(--rule); border-radius:11px; overflow:hidden; }
+.ex-head{ background:var(--accent); color:#fff; padding:.95rem 1.15rem; }
+.ex-head .hl{ font-family:var(--serif); font-style:italic; font-size:clamp(1.05rem,4vw,1.28rem); line-height:1.25; }
+.ex-head .src{ display:block; font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7); margin-top:.5rem; }
+.ex-body{ padding:.4rem 1.15rem 1.1rem; }
+.ex-row{ display:grid; grid-template-columns:1.6rem 1fr; gap:.2rem .7rem; padding:.8rem 0; border-top:1px solid var(--rule); }
+.ex-row:first-child{ border-top:none; }
+.ex-row .en{ font-family:var(--mono); font-weight:700; color:var(--accent-mid); font-size:.9rem; }
+.ex-row .eq{ font-weight:700; font-size:.97rem; color:var(--fg); }
+.ex-row .ea{ grid-column:2; font-size:.93rem; line-height:1.45; color:var(--fg-soft); margin-top:.2rem; }
+.ex-row .ea strong{ color:var(--accent); }
+.ex-foot{ padding:.95rem 1.15rem; background:var(--accent-pale); font-size:.95rem; line-height:1.45; color:var(--fg-soft); border-top:1px solid var(--rule); }
+.ex-foot strong{ color:var(--accent); }
+
+/* close */
+.close{ margin-top:2.8rem; padding-top:1.6rem; border-top:2px solid var(--accent); }
+.close .line{ font-family:var(--serif); font-style:italic; font-size:clamp(1.1rem,4vw,1.45rem); line-height:1.3; color:var(--accent); }
+.meta{ margin-top:1.5rem; font-size:.82rem; color:var(--fg-muted); line-height:1.5; }
+.meta strong{ color:var(--fg-soft); }
+a{ color:var(--accent); }
+@media (max-width:380px){ .q{ grid-template-columns:1.7rem 1fr; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header>
+    <div class="kick">The Climb-Check</div>
+    <h1>Five questions that separate polished from true.</h1>
+    <p class="lede">Fluent, formatted output reads like expertise. These five questions check whether it earned the climb.</p>
+    <div class="use">Run it on <strong>any confident claim</strong> — an AI answer, a study, the next vendor pitch, a student's brief, the AI-written case write-up someone hands you. Ten minutes, no new software.</div>
+  </header>
+
+  <div class="sec-label">The five questions</div>
+
+  <div class="q">
+    <div class="n">1</div>
+    <div class="qt">Is the comparison fair?</div>
+    <div class="qs">The length trap, the apples-to-oranges baseline. <em>What is actually being held constant — and what isn't?</em></div>
+  </div>
+  <div class="q">
+    <div class="n">2</div>
+    <div class="qt">Did they measure what they claimed?</div>
+    <div class="qs">Validated instrument? Any accuracy test? For a case: did it reason from <em>this</em> patient, or pattern-match to a type?</div>
+  </div>
+  <div class="q">
+    <div class="n">3</div>
+    <div class="qt">Who decided — and what's their stake?</div>
+    <div class="qs">Conflicted or independent judges? Whose voices produced this — and <em>whose were left out?</em></div>
+  </div>
+  <div class="q">
+    <div class="n">4</div>
+    <div class="qt">What did the headline drop from the source?</div>
+    <div class="qs">Trace it back up the chain — claim → press release → paper → data. <em>Every hop strips a qualifier.</em></div>
+  </div>
+  <div class="q">
+    <div class="n">5</div>
+    <div class="qt">What was my prior — and did it move?</div>
+    <div class="qs">Write it down <em>before</em> you ask. No prior on paper → no way to know whether you actually updated.</div>
+  </div>
+
+  <div class="sec-label">Worked example — run the five on one headline</div>
+
+  <div class="ex">
+    <div class="ex-head">
+      <span class="hl">&ldquo;ChatGPT is more empathetic than your doctor.&rdquo;</span>
+      <span class="src">Ayers et al. (2023), JAMA Internal Medicine 183(6):589–596</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-row"><div class="en">1</div><div class="eq">Fair?</div><div class="ea">No. The AI answers ran <strong>211 words to the physicians' 52</strong> — a 4:1 gap. Longer just reads as more caring.</div></div>
+      <div class="ex-row"><div class="en">2</div><div class="eq">Measured the claim?</div><div class="ea">No. They scored how it <em>sounded</em> on invented 1–5 scales — <strong>never whether it was right.</strong> A later head-to-head found 3–8× more wrong information from the chatbot.</div></div>
+      <div class="ex-row"><div class="en">3</div><div class="eq">Who decided?</div><div class="ea">The three raters were <strong>the study's own co-authors</strong> — no independent judges. And the "doctors" were anonymous volunteer Reddit replies.</div></div>
+      <div class="ex-row"><div class="en">4</div><div class="eq">What got dropped?</div><div class="ea">Everything around it: the Reddit setting, the volunteer physicians, the missing accuracy test, the authors' own <strong>"further study warranted."</strong></div></div>
+      <div class="ex-row"><div class="en">5</div><div class="eq">Did my prior move?</div><div class="ea">Write it first — "slick, probably overhyped" — then check. The empathy signal is real, but it's largely <strong>length</strong>, and accuracy was never tested.</div></div>
+    </div>
+    <div class="ex-foot"><strong>The headline and the evidence are two different objects.</strong> The gap between them is the climb — and it took a few minutes and zero new software.</div>
+  </div>
+
+  <div class="close">
+    <div class="line">Stay skeptical, not cynical. The job was never to reject the tool — it's to keep asking the questions.</div>
+    <p class="meta"><strong>Dr. Jared Black</strong> — Army-Baylor / Graduate School Research &amp; Education Symposium.<br>From the keynote <em>Simplicity on the other side of complexity.</em></p>
+  </div>
+
+</main>
+</body>
+</html>
