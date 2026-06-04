@@ -4,30 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Climb-Check — Five questions that separate polished from true</title>
-<meta name="description" content="A one-page audit for any confident claim: an AI answer, a study, a vendor pitch, a student's brief. Five questions that separate polished from true.">
+<meta name="description" content="A method primer: five questions that separate polished from true, and how to ground an AI in real standards to run the audit yourself.">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root{
   --bg:#fdfdfd; --fg:#0a0a0a; --fg-soft:#41463f; --fg-muted:#7c8479;
   --accent:#154734; --accent-mid:#3d7a5c; --accent-soft:#e8efe9; --accent-pale:#f3f7f4;
-  --bad:#8a2c1f; --bad-soft:#fbf3f1; --rule:#e5e7e4;
+  --bad:#8a2c1f; --rule:#e5e7e4;
   --sans:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
   --serif:ui-serif,"Charter","Iowan Old Style",Georgia,serif;
   --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
 }
 html{ -webkit-text-size-adjust:100%; overflow-x:hidden; }
 body{ background:var(--bg); color:var(--fg); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-wrap:break-word; }
-.wrap{ width:100%; max-width:46rem; margin:0 auto; padding:clamp(1.6rem,5vw,3.2rem) clamp(1.1rem,5vw,2rem) 4rem; }
-.ex-head .src{ overflow-wrap:anywhere; }
+.wrap{ width:100%; max-width:46rem; margin:0 auto; padding:clamp(1.2rem,4vw,2.4rem) clamp(1.1rem,5vw,2rem) 4rem; }
 
-/* header */
+/* top bar + pdf button */
+.topbar{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
 .kick{ font-family:var(--mono); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); font-weight:700; }
-h1{ font-family:var(--serif); font-weight:700; font-size:clamp(1.9rem,7vw,2.9rem); line-height:1.08; letter-spacing:-.015em; margin:.7rem 0 0; }
+.pdf-btn{ flex:0 0 auto; font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:#fff; background:var(--accent); padding:.5rem .85rem; border-radius:6px; text-decoration:none; white-space:nowrap; }
+.pdf-btn:hover{ background:#0e3325; }
+
+h1{ font-family:var(--serif); font-weight:700; font-size:clamp(1.9rem,7vw,2.9rem); line-height:1.08; letter-spacing:-.015em; margin:1rem 0 0; }
 .lede{ font-family:var(--serif); font-style:italic; font-size:clamp(1.05rem,3.6vw,1.3rem); color:var(--fg-soft); margin-top:.9rem; line-height:1.4; }
 .use{ margin-top:1.4rem; padding:.85rem 1.1rem; background:var(--accent-pale); border-left:3px solid var(--accent); border-radius:0 7px 7px 0; font-size:.97rem; line-height:1.45; color:var(--fg-soft); }
 .use strong{ color:var(--accent); }
 
-/* sections */
 .sec-label{ font-family:var(--mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--fg-muted); font-weight:700; margin:2.6rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--rule); }
 
 /* the five questions */
@@ -38,20 +40,42 @@ h1{ font-family:var(--serif); font-weight:700; font-size:clamp(1.9rem,7vw,2.9rem
 .q .qs{ grid-column:2; font-size:.95rem; line-height:1.45; color:var(--fg-soft); margin-top:.35rem; }
 .q .qs em{ color:var(--accent); font-style:italic; }
 
-/* worked example */
-.ex{ margin-top:.4rem; border:1px solid var(--rule); border-radius:11px; overflow:hidden; }
-.ex-head{ background:var(--accent); color:#fff; padding:.95rem 1.15rem; }
-.ex-head .hl{ font-family:var(--serif); font-style:italic; font-size:clamp(1.05rem,4vw,1.28rem); line-height:1.25; }
-.ex-head .src{ display:block; font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7); margin-top:.5rem; }
-.ex-body{ padding:.4rem 1.15rem 1.1rem; }
-.ex-row{ display:grid; grid-template-columns:1.6rem 1fr; gap:.2rem .7rem; padding:.8rem 0; border-top:1px solid var(--rule); }
-.ex-row:first-child{ border-top:none; }
-.ex-row .en{ font-family:var(--mono); font-weight:700; color:var(--accent-mid); font-size:.9rem; }
-.ex-row .eq{ font-weight:700; font-size:.97rem; color:var(--fg); }
-.ex-row .ea{ grid-column:2; font-size:.93rem; line-height:1.45; color:var(--fg-soft); margin-top:.2rem; }
-.ex-row .ea strong{ color:var(--accent); }
-.ex-foot{ padding:.95rem 1.15rem; background:var(--accent-pale); font-size:.95rem; line-height:1.45; color:var(--fg-soft); border-top:1px solid var(--rule); }
-.ex-foot strong{ color:var(--accent); }
+/* moves */
+.move-h{ font-family:var(--serif); font-weight:700; font-size:clamp(1.2rem,4.4vw,1.5rem); color:var(--fg); margin:1.9rem 0 .5rem; }
+.move-h .mn{ font-family:var(--mono); font-size:.78rem; font-weight:700; color:var(--accent-mid); letter-spacing:.05em; margin-right:.5rem; vertical-align:.12em; }
+.move-p{ font-size:.97rem; line-height:1.5; color:var(--fg-soft); }
+.move-p strong{ color:var(--fg); }
+.pull{ font-family:var(--serif); font-style:italic; font-size:clamp(1.1rem,4vw,1.35rem); line-height:1.32; color:var(--accent); border-left:3px solid var(--accent); padding:.2rem 0 .2rem 1rem; margin:.3rem 0 .9rem; }
+.pull .by{ display:block; font-family:var(--mono); font-style:normal; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-muted); margin-top:.5rem; }
+
+/* CO-STAR-E stacked */
+.costar{ display:grid; gap:0; margin:.6rem 0 .3rem; }
+.cs{ display:grid; grid-template-columns:1.7rem 1fr; gap:.1rem .8rem; padding:.6rem 0; border-top:1px solid var(--rule); align-items:baseline; }
+.cs:first-child{ border-top:none; }
+.cs .csl{ font-family:var(--serif); font-weight:700; font-size:1.4rem; color:var(--accent); line-height:1; }
+.cs .csw{ font-weight:700; font-size:.98rem; color:var(--fg); }
+.cs .csw .alt{ font-weight:400; font-style:italic; color:var(--fg-muted); font-size:.86rem; }
+.cs .csd{ grid-column:2; font-size:.9rem; line-height:1.4; color:var(--fg-soft); margin-top:.1rem; }
+.attrib{ font-family:var(--mono); font-size:.68rem; letter-spacing:.04em; color:var(--fg-muted); margin-top:.5rem; }
+
+/* books */
+.books{ margin:.7rem 0 .3rem; display:grid; gap:.7rem; }
+.book{ padding:.8rem 1rem; border:1px solid var(--rule); border-left:3px solid var(--accent); border-radius:0 7px 7px 0; }
+.book a{ font-family:var(--serif); font-weight:700; font-size:1.05rem; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft); }
+.book .bd{ font-size:.9rem; color:var(--fg-soft); line-height:1.4; margin-top:.25rem; }
+.book.byo{ border-left-style:dashed; border-left-color:var(--fg-muted); background:repeating-linear-gradient(135deg,#fff,#fff 9px,#fafbfa 9px,#fafbfa 18px); }
+.book.byo .bt{ font-family:var(--serif); font-weight:700; font-size:1.05rem; color:var(--fg-muted); font-style:italic; }
+
+/* prompt block */
+.prompt-wrap{ margin:.7rem 0 .3rem; border:1px solid var(--rule); border-radius:9px; overflow:hidden; background:#0e2a20; }
+.prompt-bar{ display:flex; align-items:center; justify-content:space-between; padding:.5rem .85rem; background:#0a2018; }
+.prompt-bar .pt{ font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:#9fc3b2; font-weight:700; }
+.copy-btn{ font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:#0e2a20; background:#bfe3d2; border:none; border-radius:5px; padding:.32rem .7rem; cursor:pointer; }
+.copy-btn:active{ transform:translateY(1px); }
+.prompt-text{ margin:0; padding:.95rem 1rem; font-family:var(--mono); font-size:.82rem; line-height:1.55; color:#e7f1ec; white-space:pre-wrap; word-break:break-word; }
+.prompt-text b{ color:#bfe3d2; font-weight:700; }
+.tip{ margin-top:1rem; padding:.85rem 1.1rem; background:var(--accent-pale); border-radius:7px; font-size:.93rem; line-height:1.5; color:var(--fg-soft); }
+.tip strong{ color:var(--accent); }
 
 /* close */
 .close{ margin-top:2.8rem; padding-top:1.6rem; border-top:2px solid var(--accent); }
@@ -60,13 +84,22 @@ h1{ font-family:var(--serif); font-weight:700; font-size:clamp(1.9rem,7vw,2.9rem
 .meta strong{ color:var(--fg-soft); }
 a{ color:var(--accent); }
 @media (max-width:380px){ .q{ grid-template-columns:1.7rem 1fr; } }
+@media print{
+  :root{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .pdf-btn{ display:none; } .copy-btn{ display:none; }
+  .wrap{ max-width:none; padding:0 .4in; }
+  .prompt-wrap, .book, .q, .cs{ break-inside:avoid; }
+}
 </style>
 </head>
 <body>
 <main class="wrap">
 
   <header>
-    <div class="kick">The Climb-Check</div>
+    <div class="topbar">
+      <span class="kick">The Climb-Check</span>
+      <a class="pdf-btn" href="climb-check.pdf" download>&#x2913; Download PDF</a>
+    </div>
     <h1>Five questions that separate polished from true.</h1>
     <p class="lede">Fluent, formatted output reads like expertise. These five questions check whether it earned the climb.</p>
     <div class="use">Run it on <strong>any confident claim</strong> — an AI answer, a study, the next vendor pitch, a student's brief, the AI-written case write-up someone hands you. Ten minutes, no new software.</div>
@@ -74,47 +107,51 @@ a{ color:var(--accent); }
 
   <div class="sec-label">The five questions</div>
 
-  <div class="q">
-    <div class="n">1</div>
-    <div class="qt">Is the comparison fair?</div>
-    <div class="qs">The length trap, the apples-to-oranges baseline. <em>What is actually being held constant — and what isn't?</em></div>
+  <div class="q"><div class="n">1</div><div class="qt">Is the comparison fair?</div><div class="qs">The length trap, the apples-to-oranges baseline. <em>What is actually being held constant — and what isn't?</em></div></div>
+  <div class="q"><div class="n">2</div><div class="qt">Did they measure what they claimed?</div><div class="qs">Validated instrument? Any accuracy test? For a case: did it reason from <em>this</em> patient, or pattern-match to a type?</div></div>
+  <div class="q"><div class="n">3</div><div class="qt">Who decided — and what's their stake?</div><div class="qs">Conflicted or independent judges? Whose voices produced this — and <em>whose were left out?</em></div></div>
+  <div class="q"><div class="n">4</div><div class="qt">What did the headline drop from the source?</div><div class="qs">Trace it back up the chain — claim → press release → paper → data. <em>Every hop strips a qualifier.</em></div></div>
+  <div class="q"><div class="n">5</div><div class="qt">What was my prior — and did it move?</div><div class="qs">Write it down <em>before</em> you ask. No prior on paper → no way to know whether you actually updated.</div></div>
+
+  <div class="sec-label">Do it yourself — ground an AI in the standards, then turn it on the claim</div>
+
+  <div class="move-h"><span class="mn">MOVE 1</span>A prompt is a program.</div>
+  <div class="pull">A prompt isn't a question — it's a <strong style="font-style:normal;">program.</strong> You're programming a prediction engine with words.<span class="by">Jules White, Vanderbilt</span></div>
+  <p class="move-p">You already know this discipline. An <strong>OPORD</strong> is five paragraphs; an <strong>SBAR</strong> is four. A good prompt is the same move — structure you curate, not a wish you toss.</p>
+
+  <div class="move-h"><span class="mn">MOVE 2</span>CO-STAR-E — a scaffold for the prompt.</div>
+  <p class="move-p">A starting structure for the ask itself:</p>
+  <div class="costar">
+    <div class="cs"><div class="csl">C</div><div class="csw">Context</div><div class="csd">The background it needs. Who's asking, the setting, what's already true.</div></div>
+    <div class="cs"><div class="csl">O</div><div class="csw">Objective</div><div class="csd">The actual ask — the verb. What you want it to <em>do</em>, specifically.</div></div>
+    <div class="cs"><div class="csl">S</div><div class="csw">Style</div><div class="csd">How it should read. Structure, length, formatting, vocabulary.</div></div>
+    <div class="cs"><div class="csl">T</div><div class="csw">Tone <span class="alt">/ Persona</span></div><div class="csd">The register. Clinical or warm. Hedged or committed.</div></div>
+    <div class="cs"><div class="csl">A</div><div class="csw">Audience</div><div class="csd">Who's reading. Each reader pulls a different vocabulary.</div></div>
+    <div class="cs"><div class="csl">R</div><div class="csw">Response</div><div class="csd">The format back. Paragraph, table, list — a structured object you can use.</div></div>
+    <div class="cs"><div class="csl">E</div><div class="csw">Examples</div><div class="csd">Show, don't tell. One or two beats a paragraph of rules.</div></div>
   </div>
-  <div class="q">
-    <div class="n">2</div>
-    <div class="qt">Did they measure what they claimed?</div>
-    <div class="qs">Validated instrument? Any accuracy test? For a case: did it reason from <em>this</em> patient, or pattern-match to a type?</div>
-  </div>
-  <div class="q">
-    <div class="n">3</div>
-    <div class="qt">Who decided — and what's their stake?</div>
-    <div class="qs">Conflicted or independent judges? Whose voices produced this — and <em>whose were left out?</em></div>
-  </div>
-  <div class="q">
-    <div class="n">4</div>
-    <div class="qt">What did the headline drop from the source?</div>
-    <div class="qs">Trace it back up the chain — claim → press release → paper → data. <em>Every hop strips a qualifier.</em></div>
-  </div>
-  <div class="q">
-    <div class="n">5</div>
-    <div class="qt">What was my prior — and did it move?</div>
-    <div class="qs">Write it down <em>before</em> you ask. No prior on paper → no way to know whether you actually updated.</div>
+  <div class="attrib">CO-STAR from Sheila Teo — GovTech Singapore's first GPT-4 prompt-engineering competition (2023). +E for Examples.</div>
+
+  <div class="move-h"><span class="mn">MOVE 3</span>The higher-leverage move: ground it in context.</div>
+  <p class="move-p">CO-STAR-E gets you a clean prompt. The bigger lever is <strong>context</strong> — what you ground the model in. To audit a claim, give it two things: <strong>the claim or paper</strong> you're checking, and <strong>the standard you want it judged against</strong> — a methods text, run as an adversarial reviewer rather than a cheerleader.</p>
+
+  <div class="books">
+    <div class="book"><a href="https://press.princeton.edu/books/hardcover/9780691214368/thinking-clearly-with-data" target="_blank" rel="noopener">Thinking Clearly with Data</a><div class="bd">The logic of evidence, end to end — what a comparison can and can't show. Bueno de Mesquita &amp; Fowler.</div></div>
+    <div class="book"><a href="https://www.openintro.org/book/os/" target="_blank" rel="noopener">OpenIntro Statistics</a> <span style="font-size:.78rem; color:var(--fg-muted);">(free)</span><div class="bd">The shared foundation — sampling, inference, what a p-value does and doesn't say. Or any stats text you trust.</div></div>
+    <div class="book byo"><div class="bt">Your favorite text — or a key methods paper — goes here.</div><div class="bd">Bring the standard you already rely on. The method is the same; the rubric is yours.</div></div>
   </div>
 
-  <div class="sec-label">Worked example — run the five on one headline</div>
+  <div class="tip">Works best when the standard is a <strong>PDF</strong>. Hand any PDF you own (or find open-source) to an AI of your choice and ask it to turn it into a <strong>tight, chapter-by-chapter markdown extract</strong>. That's what I do — then I point the audit at the markdown.</div>
 
-  <div class="ex">
-    <div class="ex-head">
-      <span class="hl">&ldquo;ChatGPT is more empathetic than your doctor.&rdquo;</span>
-      <span class="src">Ayers et al. (2023), JAMA Internal Medicine 183(6):589–596</span>
-    </div>
-    <div class="ex-body">
-      <div class="ex-row"><div class="en">1</div><div class="eq">Fair?</div><div class="ea">No. The AI answers ran <strong>211 words to the physicians' 52</strong> — a 4:1 gap. Longer just reads as more caring.</div></div>
-      <div class="ex-row"><div class="en">2</div><div class="eq">Measured the claim?</div><div class="ea">No. They scored how it <em>sounded</em> on invented 1–5 scales — <strong>never whether it was right.</strong> A later head-to-head found 3–8× more wrong information from the chatbot.</div></div>
-      <div class="ex-row"><div class="en">3</div><div class="eq">Who decided?</div><div class="ea">The three raters were <strong>the study's own co-authors</strong> — no independent judges. And the "doctors" were anonymous volunteer Reddit replies.</div></div>
-      <div class="ex-row"><div class="en">4</div><div class="eq">What got dropped?</div><div class="ea">Everything around it: the Reddit setting, the volunteer physicians, the missing accuracy test, the authors' own <strong>"further study warranted."</strong></div></div>
-      <div class="ex-row"><div class="en">5</div><div class="eq">Did my prior move?</div><div class="ea">Write it first — "slick, probably overhyped" — then check. The empathy signal is real, but it's largely <strong>length</strong>, and accuracy was never tested.</div></div>
-    </div>
-    <div class="ex-foot"><strong>The headline and the evidence are two different objects.</strong> The gap between them is the climb — and it took a few minutes and zero new software.</div>
+  <p class="move-p" style="margin-top:1.3rem;">Then run a prompt like this — CO-STAR-E doing the work:</p>
+  <div class="prompt-wrap">
+    <div class="prompt-bar"><span class="pt">Adversarial audit prompt</span><button class="copy-btn" data-copy>Copy</button></div>
+    <pre class="prompt-text"><b>CONTEXT:</b>  I'm auditing a claim, not defending it. Attached: [the paper/claim] and [book.md], a methods text I trust as the standard.
+<b>OBJECTIVE:</b> Using [book.md] as the rubric, list every assumption the work makes — explicit and implicit — and check each against the book. Then separate what was measured from what was claimed.
+<b>STYLE:</b>    One finding per line. Cite the book chapter for each check. No praise for the writing.
+<b>TONE:</b>     Skeptical and even-handed. Argue both sides. Default to "the evidence doesn't support that" when it doesn't.
+<b>AUDIENCE:</b> A clinician who knows the subject but not the statistics.
+<b>RESPONSE:</b> A numbered list. Tag each finding [the source's own data] / [inference] / [needs outside evidence].</pre>
   </div>
 
   <div class="close">
@@ -123,5 +160,17 @@ a{ color:var(--accent); }
   </div>
 
 </main>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var pre=b.closest('.prompt-wrap').querySelector('.prompt-text');
+    var text=pre.innerText;
+    navigator.clipboard.writeText(text).then(function(){
+      var o=b.textContent; b.textContent='Copied ✓';
+      setTimeout(function(){ b.textContent=o; },1500);
+    });
+  });
+});
+</script>
 </body>
 </html>
